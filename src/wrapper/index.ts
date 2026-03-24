@@ -48,7 +48,7 @@ export class SkeletonBuilder {
 	 * Each ring must have a duplicate of the first vertex at the end.
 	 * @param polygon The GeoJSON polygon.
 	 */
-	public static buildFromGeoJSONPolygon(polygon: GeoJSON.Polygon): Skeleton {
+	public static buildFromGeoJSONPolygon(polygon: GeoJSON.Polygon): Skeleton | null {
 		this.checkModule();
 		return this.buildFromPolygon(polygon.coordinates);
 	}
@@ -61,7 +61,7 @@ export class SkeletonBuilder {
 	 * Each ring must have a duplicate of the first vertex at the end.
 	 * @param coordinates The polygon represented as an array of rings.
 	 */
-	public static buildFromPolygon(coordinates: number[][][]): Skeleton {
+	public static buildFromPolygon(coordinates: number[][][]): Skeleton | null {
 		this.checkModule();
 
 		const inputBuffer = this.serializeInput(coordinates);
